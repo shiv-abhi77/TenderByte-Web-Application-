@@ -1,0 +1,11 @@
+<?php
+	echo "
+	<form action='dashb.php' method='post'>
+	<center>
+	    <input type='text' name='cisname'/><br><br>    //dashbIP.php
+	    <a href='dashb.php'>
+	    <input type='submit' value='submit'/></a>
+	</center>
+	</form>"
+		?>
+		

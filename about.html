@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  .main {
+            justify-content: space-between;
+            margin: 5px 5px 2px;
+            font-family: sans-serif;
+        }
+
+        .form {
+            margin-left: 35%;
+            width: 30%;
+            height: 660px;
+            box-sizing: border-box;
+            background-color: white;
+            text-align: center;
+            box-shadow: 1px 1px 2px grey;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            padding-top: 10px;
+        }
+
+        .form h2 {
+            text-align: center;
+        }
+
+        input {
+            width: 85%;
+            margin-bottom: 15px;
+            height: 35px;
+            background-color: rgb(255, 255, 255);
+            border: none;
+            padding-left: 8px;
+            border: solid rgb(209, 205, 205) 1px;
+            border-radius: 5px;
+        }
+
+        .a {
+            color: white;
+            background-color: #0870d1;
+            border: none;
+            border-radius: 40px;
+            cursor: pointer;
+            width: 85%;
+            height: 50px;
+            font-size: 17px;
+        }
+
+        .a1,
+        .a2,
+        .a3 {
+            border-radius: 40px;
+            cursor: pointer;
+            width: 85%;
+            background-repeat: no-repeat;
+            background-position: 15px;
+            position: left;
+            height: 50px;
+            font-size: 17px;
+        }
+
+        .a1 {
+            border: none;
+            color: white;
+            background-color: #000000;
+            background-image: url("https://cdn.freebiesupply.com/logos/large/2x/apple-1-logo-black-and-white.png");
+            background-size: 25px;
+        }
+
+        .a2 {
+            border: none;
+            color: white;
+            background-color: #3c5a96;
+            background-image: url("https://seeklogo.com/images/F/facebook-circle-logo-866E22DBE0-seeklogo.com.png");
+            background-size: 35px;
+        }
+
+        .a3 {
+            color: grey;
+            background-color: white;
+            background-image: url("https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-google-icon-logo-png-transparent-svg-vector-bie-supply-14.png");
+            border: 5px solid grey I !important;
+            background-size: 25px;
+        }
+
+
+        a:hover {
+            color: rgb(105, 100, 179);
+            background-color: transparent;
+        }
+
+        a:link {
+            color: rgb(0, 0, 0);
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: rgb(0, 0, 0);
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        body {
+            height: 100%;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f7f8fa;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            position: fixed;
+            background-color:  rgb(255, 255, 255);
+            width: 100%;
+            height: 80px;
+            top: 0;
+            box-shadow: 0 0 2px grey;
+            z-index:99;
+        }
+
+        header a img {
+            float: left;
+            margin-top: 2%;
+            margin-right: 2%;
+        }
+
+        .nav__links {
+            list-style: none;
+            padding: 20px 10px 10px 30px;
+            font-size: 16px;
+            width: 60%;
+            margin-left: 2%;
+        }
+
+        .nav__links li {
+            display: inline-block;
+            padding: 0px 10px;
+        }
+
+        .nav__links li a {
+            transition: all 0.3s ease 0s;
+            text-decoration: none;
+            color: black;
+        }
+
+        .nav__links li a:hover {
+            color: #0870d1;
+        }
+
+        li.dropdown {
+            display: inline-block;
+        }
+
+        .arrow {
+            float: right;
+            margin-top: -19px;
+            margin-left: 5px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            min-width: 120px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+            background-color: white;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #0870d1;
+            color: white !important;
+        }
+
+        .login {
+            padding: 0px 25px 10px 25px;
+            margin-top: 18px;
+            width: 32%;
+        }
+
+        .login li {
+            display: inline-block;
+            padding: 0px 8px;
+        }
+
+        input[type="text"] {
+            border: none;
+            border-radius: 15px;
+            background-repeat: no-repeat;
+            background-size: 25px 25px;
+            background-position: 10px;
+            background-image: url(search.svg);
+            background-color: #f7f8fa;
+            height: 35px;
+            width: 155px;
+            font-size: 16px;
+            padding-left: 15px;
+        }
+
+        .login li .want-border {
+            box-sizing: border-box;
+            border: 2px solid black;
+            border-radius: 20px;
+            padding: 5px 15px;
+        }
+
+        .login li a {
+            text-decoration: none;
+            color: black;
+            font-weight: 600;
+        }
+
+        .login li a:hover {
+            color: #0870d1;
+        }
+
+        .beta:link {
+            background-color: #91c4f2;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 3px;
+            border-radius: 3px;
+        }
+
+        .beta:hover {
+            color: black !important;
+        }
+
+        .col:hover {
+            text-decoration: underline;
+        }
+
+        .col:visited {
+            color: #2a9df4;
+        }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 20px;
+  width: 250px;
+  height: 480px;
+  margin-left: 120px;
+}
+
+.about-section {
+  padding: 50px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: left;
+  background-color: #474e5d;
+  color: white;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.bottom-container{
+  background-color: #596875;
+  color: #f7f7f7;
+  padding: 20px;
+}
+.title {
+  color: grey;
+}
+
+.ic{
+  height: 40px;
+}
+.ic:hover{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
+.our-process {
+    margin: 50px 0;
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+div {
+    display: block;
+}
+body {
+    background: #f7f7f7;
+    letter-spacing: 0.5px;
+    color: #414042;
+    font-family: 'pt_sansregular';
+    font-size: 15px;
+    counter-reset: section;
+}
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+}
+html {
+    font-size: 10px;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+html {
+    font-family: sans-serif;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+:after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+:after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.our-process {
+    margin: 50px 0;
+}
+
+.process-div {
+    position: relative;
+}
+
+.process-div:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    margin-top: -17px;
+    height: 2px;
+    left: 50px;
+    right: 50px;
+    z-index: -1;
+    background: #a5233d;
+}
+
+.process-div-inner {
+    display: block;
+    width: 20%;
+    box-sizing: border-box;
+    text-align: center;
+    float: left;
+}
+
+.process-round {
+    border: 2px solid #a5233d;
+    height: 150px;
+    width: 150px;
+    border-radius: 100px;
+    margin: 0 auto;
+    background: rgb(255, 255, 255);
+    position: relative;
+}
+
+.process-round:before {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid #a2df77;
+    content: "";
+    position: absolute;
+    top: 50px;
+    margin-top: 14px;
+    right: -50%;
+    margin-right: 14px;
+}
+
+.process-round.last:before {
+    display: none;
+}
+
+.process-round span {
+    background: url(../images/process-icon.png) no-repeat;
+    /* background: url(https://tse1.mm.bing.net/th?id=OIP.zGN-I33BmulL9J4LjyZmQAHaHa&pid=Api&rs=1&c=1&qlt=95&w=99&h=99) no-repeat; */
+    height: 60px;
+    width: 70px;
+    display: block;
+    margin: 44px auto;
+}
+
+.process-round span.p1 {
+    background-position: -20px 0;
+}
+
+.process-round span.p2 {
+    background-position: -65px 0;
+}
+
+.process-round span.p3 {
+    background-position: -135px 0;
+}
+
+.process-round span.p4 {
+    background-position: -219px 0;
+}
+
+.process-round span.p5 {
+    background-position: -294px 0;
+}
+
+.process-text {
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 17px;
+}
+
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="nav__links">
+        <a href="Home.html">
+            <img src="logo1.jpeg"
+                width="100px" height="35px" style="margin-top: 0px;" />
+        </a>
+        <ul>
+            <li class="dropdown">
+                <a class="dropbtn" href="Galleries.html"><b>Services </b> <img class="arrow" src="down arrow.jpeg"
+                        width="18px" height="20px"></a>
+                <div class="dropdown-content">
+                    <a href="Popular.html">Local Tenders</a>
+                    <a href="Fresh.html">National Tenders</a>
+                    <a href="Echoice.html">Eprocurment Solution</a>
+                    <a href="Galleries.html"> Tendering Solution</a>
+                </div>
+            </li>
+            
+            <li><a href="#"> <b>Digital Certificate</b> </a></li>
+            <li><a href="#"> <b>Contact Us</b></a></li>
+            <li><a href="about.html"> <b>About Us</b></a></li>
+        </ul>
+    </div>
+
+    <ul class="login">
+        <input type="text" placeholder="Search Tenders">
+        <li><a href="Login.html"> Log in </a></li>
+        <li><a href="email.html" class="want-border"> Sign Up </a></li>
+    </ul>
+</header>
+
+<div class="about-section">
+  <br>
+  <font size="5px"> <h1> About Us </h1> </font>
+  <font size="3px" color="#d6b0b0"><p class="contact-subT">"Tenderbyte offers you Instant Support, call us and we will surprise you with our Quick Response"</p></font>
+   <br>
+  <p><b><font size="4px">Some text about who we are and what we do.</font></b> </p>
+ 
+  <div>
+    <p> We help colleges get data about companies in the industry & come
+ up with best option. Reduces time and efforts by linking colleges directly
+ to companies.</p>
+ 
+ <p>Easy for colleges to search for companies according to the
+     requirements of the tender.</p>
+ 
+     <p>This Website can be viewed as a business opportunity by companies.</p>
+ </div>
+</div>
+
+
+
+
+<div class="our-process">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title">
+                    <center><h2>Our Process</h2></center>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="process-div">
+                    <div class="process-div-inner">
+                        <div class="process-round">
+                            <span class="p1">
+                                
+                            </span>
+                        </div>
+                        <div class="process-text">Get Tenders from Colleges</div>
+                    </div>
+                    <div class="process-div-inner">
+                        <div class="process-round">
+                            <span class="p2"></span>
+                        </div>
+                        <div class="process-text">Show Them on Website</div>
+                    </div>
+                    <div class="process-div-inner">
+                        <div class="process-round">
+                            <span class="p3"></span>
+                        </div>
+                        <div class="process-text">Bidding from Companies</div>
+                    </div>
+                    <div class="process-div-inner">
+                        <div class="process-round">
+                            <span class="p4"></span>
+                        </div>
+                        <div class="process-text">Choose the best option for the colleges</div>
+                    </div>
+                    <div class="process-div-inner">
+                        <div class="process-round last">
+                            <span class="p5"></span>
+                        </div>
+                        <div class="process-text last">Notify colleges about best option for their Tenders</div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div><br>
+        <hr><br>
+
+        <h1 style="text-align:center">Our Team</h1>
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <img src="prashant.jpeg" alt="Prashant" style="width:100%">
+      <div class="container">
+        <h2>Prashant Kumar</h2>
+        <p class="title">Developer</p>
+        <p>lorem ipsum ipsum lorem.</p>
+        <p>prashant@gmail.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="vikas.jpeg" alt="Vikash" style="width:100%">
+      <div class="container">
+        <h2>Vikas Singh Rajput</h2>
+        <p class="title">Developer</p>
+        <p>lorem ipsum ipsum lorem.</p>
+        <p>vikash@gmail.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+        <img src="shivansh.jpeg" alt="Shivansh" style="width:100%">
+      <div class="container">
+        <h2>Shivansh Nagar</h2>
+        <p class="title">Developer</p>
+        <p>lorem ipsum ipsum lorem.</p>
+        <p>shivansh@gmail.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+      <br><br><br>
+    <section class="contact-us">
+      <div>
+      <div class="bottom-container">
+      
+        <h2><font size="6px" color="#a5233d"> CONTACT US</font></h2>
+        <hr>
+        <table width="1000px">
+          <tr>
+            <td> <div class="contact-wrapper">
+              <div class="contact-content left-content">
+                  <div class="off-address "> 
+                    
+                      <h2 class="head-off">Head Office</h2>
+                     
+                      <p>
+                        Lorem ipsum
+              <br>
+                        Lorem ipsum dolor sit amet.
+              <br>
+                        IIIT Nagpur
+                    </p><br><br>
+                  </div></td>
+            <td><div class="contact-wrapper">
+              <div class="contact-content right-content">  
+                  <h2 class="inquiries-sale">Inquiries</h2>
+                    <br>
+                  <label for="">
+                      <font size="4px"> Sales</font>
+                  </label>
+                  <ul class="content-detail">
+                      <li>
+                          <i class="fa fa-fax"></i>
+                          (+91) 1111111111
+                      </li>
+                      <li>
+                          +91-1111111111, +91-1111111111
+                      </li>
+                      <li>
+                          <p>sales@tenderbyte.com</p>
+                      </li>
+                  </ul>
+                </div>
+              </div></td>
+            <td><br><br><br>
+               <a href=""><img class="ic"  src="facebook logo_icon.png" alt="error"></a><br><br><br>
+               <a href=""><img class="ic"  src="instagram logo_icon.png" alt="error"></a><br>
+            </td>
+          </tr>
+
+
+
+          <tr>
+            <td><div class="contact-wrapper">
+              <div class="contact-content left-content">
+              <div class="off-address">
+                    
+              <h2 class="branch-off">Branch Office</h2>
+              <p>
+                  Lorem ipsum
+        <br>
+                  Lorem ipsum dolor sit amet.
+        <br>
+                  IIIT Nagpur
+              </p><br><br>
+          </div></td>
+            <td><div class="contact-wrapper">
+              <div class="contact-content right-content">  
+              
+        </div>
+      </div></td>
+            <td>
+              <a href=""><img class="ic" src="linkedin logo_icon.png" alt="error"></a><br><br><br>
+               <a href=""><img class="ic"  src="gmail_icon.png" alt="error"></a>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+  </section>
+</div>
+</div>
+</body>
+</html>
